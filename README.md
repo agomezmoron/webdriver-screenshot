@@ -21,7 +21,18 @@ Getting started
 ###How to use
 
 --
- 1. Adding the following maven dependency in you ```pom.xml``` file:
+ 1. Add the repository:
+
+```xml
+  <repositories>
+		<repository>
+			<id>appium-handler</id>
+			<name>AppiumHandler library built by agomezmoron</name>
+			<url>https://raw.github.com/agomezmoron/appium-handler/mvn-repo</url>
+		</repository>
+	</repositories>
+ ```
+ 2. Adding the following maven dependency in you ```pom.xml``` file:
 
 
     ```xml 
@@ -32,7 +43,7 @@ Getting started
     </dependency>
     ```
     
- 2. <a name="annotation"></a> Adding next annotation: ```@org.testng.annotations.Listeners({com.github.agomezmoron.testng.listener.SeleniumScreenshotOnFailureListener.class, com.github.agomezmoron.testng.listener.SystemScreenshotOnFailureListener.class})``` to your TestNG Selenium class:
+ 3. <a name="annotation"></a> Adding next annotation: ```@org.testng.annotations.Listeners({com.github.agomezmoron.testng.listener.SeleniumScreenshotOnFailureListener.class, com.github.agomezmoron.testng.listener.SystemScreenshotOnFailureListener.class})``` to your TestNG Selenium class:
    ```java
    import org.testng.annotations.Listeners;
    import com.github.agomezmoron.testng.listener;
@@ -43,7 +54,7 @@ Getting started
    }
     ```
  
- 3. Subsequently the plugin will find by reflection the **WebDriver instance** you are using and will do the rest for you.
+ 4. Subsequently the plugin will find by reflection the **WebDriver instance** you are using and will do the rest for you.
   
 ### How will I get the output?
 
