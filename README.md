@@ -26,9 +26,9 @@ Getting started
    ```xml
   <repositories>
 		<repository>
-			<id>appium-handler</id>
-			<name>AppiumHandler library built by agomezmoron</name>
-			<url>https://raw.github.com/agomezmoron/appium-handler/mvn-repo</url>
+			<id>selenium-screenshot</id>
+			<name>Selenium screenshot library built by agomezmoron</name>
+			<url>https://raw.github.com/agomezmoron/selenium-screenshot/mvn-repo</url>
 		</repository>
 	</repositories>
     ```
