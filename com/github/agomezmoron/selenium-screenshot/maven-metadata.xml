@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <groupId>com.github.agomezmoron</groupId>
+  <artifactId>selenium-screenshot</artifactId>
+  <versioning>
+    <versions>
+      <version>0.0.1-SNAPSHOT</version>
+    </versions>
+    <lastUpdated>20160706132535</lastUpdated>
+  </versioning>
+</metadata>
