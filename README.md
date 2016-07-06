@@ -23,7 +23,7 @@ Getting started
 --
  1. Add the repository:
 
-```xml
+   ```xml
   <repositories>
 		<repository>
 			<id>appium-handler</id>
@@ -31,7 +31,7 @@ Getting started
 			<url>https://raw.github.com/agomezmoron/appium-handler/mvn-repo</url>
 		</repository>
 	</repositories>
- ```
+    ```
  2. Adding the following maven dependency in you ```pom.xml``` file:
 
 
