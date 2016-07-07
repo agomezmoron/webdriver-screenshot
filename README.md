@@ -46,7 +46,8 @@ Getting started
  3. <a name="annotation"></a> Adding next annotation: ```@org.testng.annotations.Listeners({com.github.agomezmoron.testng.listener.SeleniumScreenshotOnFailureListener.class, com.github.agomezmoron.testng.listener.SystemScreenshotOnFailureListener.class})``` to your TestNG Selenium class:
    ```java
    import org.testng.annotations.Listeners;
-   import com.github.agomezmoron.testng.listener;
+   import com.github.agomezmoron.testng.listener.SeleniumScreenshotOnFailureListener;
+   import com.github.agomezmoron.testng.listener.SystemScreenshotOnFailureListener;
    
    @Listeners({SeleniumScreenshotOnFailureListener.class, SystemScreenshotOnFailureListener.class})
    public class SeleniumTestClass {
