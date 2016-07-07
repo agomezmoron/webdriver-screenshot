@@ -4,7 +4,7 @@
 
 	<groupId>com.github.agomezmoron</groupId>
 	<artifactId>selenium-screenshot</artifactId>
-	<version>1.0.0</version>
+	<version>1.0.1</version>
 	<packaging>jar</packaging>
 
 	<name>Automatic Selenium screenshot if a test fails</name>
@@ -12,7 +12,6 @@
 	<url>https://github.com/agomezmoron/selenium-screenshot</url>
 
 	<properties>
-		<github.global.server>github</github.global.server>
 		<!-- Versions section (minimum ones) -->
 		<selenium.version>2.41.0</selenium.version>
 		<java.version>1.7</java.version>
@@ -103,6 +102,7 @@
 					</includes>
 					<repositoryName>selenium-screenshot</repositoryName>      <!-- github repo name -->
 					<repositoryOwner>agomezmoron</repositoryOwner>    <!-- github username -->
+					<server>github</server>
 				</configuration>
 				<executions>
 					<!-- run site-maven-plugin's 'site' target as part of the build's normal 
