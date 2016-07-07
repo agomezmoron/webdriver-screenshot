@@ -82,7 +82,7 @@ public class SeleniumScreenshotOnFailureListener extends ScreenshotOnFailureList
         WebDriver webDriver = null;
         for (Field eachField : fields) {
             eachField.setAccessible(true);
-            if (eachField.getType() == WebDriver.class) {
+            if (eachField.getClass().isAssignableFrom(WebDriver.class)) {
                 try {
                     webDriver = (WebDriver) eachField.get(obj);
                 } catch (IllegalAccessException ex) {
@@ -132,7 +132,7 @@ public class SeleniumScreenshotOnFailureListener extends ScreenshotOnFailureList
      */
     private static WebDriver processMethods(Method[] methods, Object obj) {
         for (Method eachMethod : methods) {
-            if (eachMethod.getReturnType() == WebDriver.class) {
+            if (eachMethod.getClass().isAssignableFrom(WebDriver.class)) {
                 eachMethod.setAccessible(true);
                 try {
                     return (WebDriver) eachMethod.invoke(obj);
