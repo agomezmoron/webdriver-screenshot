@@ -102,6 +102,7 @@
 					</includes>
 					<repositoryName>selenium-screenshot</repositoryName>      <!-- github repo name -->
 					<repositoryOwner>agomezmoron</repositoryOwner>    <!-- github username -->
+					<server>github</server>
 				</configuration>
 				<executions>
 					<!-- run site-maven-plugin's 'site' target as part of the build's normal 

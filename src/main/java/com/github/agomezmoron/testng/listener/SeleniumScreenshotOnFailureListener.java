@@ -31,6 +31,9 @@ import java.lang.reflect.Method;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import org.apache.log4j.Logger;
 import org.openqa.selenium.OutputType;
@@ -72,17 +75,44 @@ public class SeleniumScreenshotOnFailureListener extends ScreenshotOnFailureList
     }
 
     /**
+     * Getting the all the inherited fields.
+     * @param type of the class from where we want to retrieve the {@link Field} list.
+     * @return a {@link List} of {@link Field}.
+     */
+    private static List<Field> getInheritedFields(Class<?> type) {
+        List<Field> fields = new ArrayList<Field>();
+        for (Class<?> c = type; c != null; c = c.getSuperclass()) {
+            fields.addAll(Arrays.asList(c.getDeclaredFields()));
+        }
+        return fields;
+    }
+
+    /**
+     * Getting the all the inherited methods.
+     * @param type of the class from where we want to retrieve the {@link Method} list.
+     * @return a {@link List} of {@link Method}.
+     */
+    private static List<Method> getInheritedMethod(Class<?> type) {
+        List<Method> fields = new ArrayList<Method>();
+        for (Class<?> c = type; c != null; c = c.getSuperclass()) {
+            fields.addAll(Arrays.asList(c.getDeclaredMethods()));
+        }
+        return fields;
+    }
+
+    /**
      * It tries to get the driver that is active in execution time.
      * @param obj to be use in the Reflection API.
      * @return a {@link WebDriver} instance.
      */
     private WebDriver getWebDriverByReflection(Object obj) {
         Class<?> c = obj.getClass();
-        Field[] fields = c.getDeclaredFields();
+        // Field[] fields = c.getDeclaredFields();
+        List<Field> fields = getInheritedFields(obj.getClass());
         WebDriver webDriver = null;
         for (Field eachField : fields) {
             eachField.setAccessible(true);
-            if (eachField.getClass().isAssignableFrom(WebDriver.class)) {
+            if (WebDriver.class.isAssignableFrom(eachField.getType())) {
                 try {
                     webDriver = (WebDriver) eachField.get(obj);
                 } catch (IllegalAccessException ex) {
@@ -110,7 +140,7 @@ public class SeleniumScreenshotOnFailureListener extends ScreenshotOnFailureList
      * @return a {@link WebDriver} instance.
      */
     private static WebDriver tryToFindWebDriverInPublic(Object obj) {
-        Method[] methods = obj.getClass().getMethods();
+        List<Method> methods = getInheritedMethod(obj.getClass());
         return processMethods(methods, obj);
     }
 
@@ -120,7 +150,7 @@ public class SeleniumScreenshotOnFailureListener extends ScreenshotOnFailureList
      * @return a {@link WebDriver} instance.
      */
     private static WebDriver tryToFindWebDriverInPrivate(Object obj) {
-        Method[] methods = obj.getClass().getDeclaredMethods();
+        List<Method> methods = getInheritedMethod(obj.getClass());
         return processMethods(methods, obj);
     }
 
@@ -130,9 +160,9 @@ public class SeleniumScreenshotOnFailureListener extends ScreenshotOnFailureList
      * @param obj to be used.
      * @return a {@link WebDriver} instance.
      */
-    private static WebDriver processMethods(Method[] methods, Object obj) {
+    private static WebDriver processMethods(List<Method> methods, Object obj) {
         for (Method eachMethod : methods) {
-            if (eachMethod.getClass().isAssignableFrom(WebDriver.class)) {
+            if (WebDriver.class.isAssignableFrom(eachMethod.getReturnType())) {
                 eachMethod.setAccessible(true);
                 try {
                     return (WebDriver) eachMethod.invoke(obj);
