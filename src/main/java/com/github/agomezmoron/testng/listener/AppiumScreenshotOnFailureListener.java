@@ -25,19 +25,19 @@
 package com.github.agomezmoron.testng.listener;
 
 /**
- * It takes a screenshot through the Selenium WebDriver.
+ * It takes a screenshot through the Appium WebDriver.
  * @see {@link WebDriverOnFailureListener}
  * @author Alejandro Gomez <agommor@gmail.com>
  *
  */
-public class SeleniumScreenshotOnFailureListener extends WebDriverOnFailureListener {
+public class AppiumScreenshotOnFailureListener extends WebDriverOnFailureListener {
 
     /**
      * @see {@link ScreenshotOnFailureListenerStrategy#getScreenshotStrategyName()}.
      */
     @Override
     protected String getScreenshotStrategyName() {
-        return "Selenium";
+        return "Appium";
     }
 
 }
