@@ -47,7 +47,7 @@ import org.testng.ITestResult;
  * @author Alejandro Gomez <agommor@gmail.com>
  *
  */
-public abstract class WebDriverOnFailureListener extends ScreenshotOnFailureListenerStrategy {
+abstract class WebDriverOnFailureListener extends ScreenshotOnFailureListenerStrategy {
 
     /**
      * Log instance.
