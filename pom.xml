@@ -3,13 +3,13 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.github.agomezmoron</groupId>
-	<artifactId>selenium-screenshot</artifactId>
-	<version>1.0.1</version>
+	<artifactId>webdriver-screenshot</artifactId>
+	<version>1.0.3</version>
 	<packaging>jar</packaging>
 
-	<name>Automatic Selenium screenshot if a test fails</name>
-	<description>It allows your Selenium project to store automatically screenshots if a test fails integrating with TestNG</description>
-	<url>https://github.com/agomezmoron/selenium-screenshot</url>
+	<name>Automatic Selenium and Appium screenshot if a test fails</name>
+	<description>It allows your Selenium or Appium project to store automatically screenshots if a test fails integrating with TestNG</description>
+	<url>https://github.com/agomezmoron/selenium-appium-screenshot</url>
 
 	<properties>
 		<!-- Versions section (minimum ones) -->
