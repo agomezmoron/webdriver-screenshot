@@ -2,6 +2,7 @@
 
 <img src="/resources/images/selenium-logo.png" height="128" />
 <img src="/resources/images/testng-logo.png" height="128" />
+<img src="/resources/images/appium-logo.jpg" height="128" />
 <img src="/resources/images/screenshot.png" height="128" />
 
 Description
